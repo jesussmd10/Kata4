@@ -5,5 +5,5 @@ import software.ulpgc.model.Pokemon;
 import java.io.IOException;
 
 public interface PokemonWriter extends AutoCloseable {
-    void write(Pokemon movie) throws IOException;
+    void write(Pokemon pokemon) throws IOException;
 }

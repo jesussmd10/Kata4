@@ -33,8 +33,8 @@ public class ImportCommand implements Command{
     }
 
         private void doExecute(File input, File output) throws Exception {
-            try (PokemonReader reader = createMovieReader(input);
-                 PokemonWriter writer = createMovieWriter(output)) {
+            try (PokemonReader reader = createPokemonReader(input);
+                 PokemonWriter writer = createPokemonWriter(output)) {
             while (true) {
                 Pokemon pokemon = reader.read();
                 if (pokemon == null) break;
@@ -42,7 +42,7 @@ public class ImportCommand implements Command{
             }
         }
     }
-    private static DatabasePokemonWriter createMovieWriter(File file) throws SQLException {
+    private static DatabasePokemonWriter createPokemonWriter(File file) throws SQLException {
         return new DatabasePokemonWriter(deleteIfExists(file));
     }
 
@@ -51,7 +51,7 @@ public class ImportCommand implements Command{
         return file;
     }
 
-    private static FilePokemonReader createMovieReader(File file) throws IOException {
+    private static FilePokemonReader createPokemonReader(File file) throws IOException {
         return new FilePokemonReader(file, new TsvPokemonDeserializer());
     }
 
