@@ -21,9 +21,6 @@ public class Piechart {
 
 
 
-    public String getTitle() {
-        return this.title;
-    }
 
     public Set<String> categories() {
         return this.counts.keySet();
